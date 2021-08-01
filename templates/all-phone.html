@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block title %}All Phone Numbers{% endblock title %}
+
+{% block content %}
+        <table id="tech-companies-1" class="table table-striped">
+            <tr>
+                <th>Phone Numbers</th>
+                <th>Actions</th>
+            </tr>
+            {% for number in numbers %}
+            <tr>
+                <td>{{number.phone}}</td>
+                <td>Edit Delete</td>
+            </tr>
+            {% endfor %}
+        </table>
+
+{% endblock content %}

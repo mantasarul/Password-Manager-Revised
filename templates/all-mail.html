@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block title %}All Emails{% endblock title %}
+
+{% block content %}
+        <table id="tech-companies-1" class="table table-striped">
+            <tr>
+                <th>Mails</th>
+                <th>Actions</th>
+            </tr>
+            {% for mail in mails %}
+            <tr>
+                <td>{{mail.mail}}</td>
+                <td>Edit Delete</td>
+            </tr>
+            {% endfor %}
+        </table>
+
+{% endblock content %}

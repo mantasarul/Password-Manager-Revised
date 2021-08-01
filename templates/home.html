@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block title %}Home{% endblock title %}
+
+{% block content %}
+        <table id="tech-companies-1" class="table table-striped">
+            <tr>
+                <th>Category</th>
+                <th>URL</th>
+                <th>Username</th>
+                <th>Password</th>
+                <th>Email</th>
+                <th>Phone</th>
+                <th>Recovery Code</th>
+            </tr>
+            {% for pass in passwords %}
+            <tr>
+                <td>{{pass.category}}</td>
+                <td>{{pass.url}}</td>
+                <td>{{pass.username}}</td>
+                <td>{{pass.password}}</td>
+                <td>{{pass.mail_id}}</td>
+                <td>{{pass.phone_id}}</td>
+                <td>{{pass.recovery_code}}</td>
+            </tr>
+            {% endfor %}
+        </table>                       
+            
+ 
+{% endblock content %}
