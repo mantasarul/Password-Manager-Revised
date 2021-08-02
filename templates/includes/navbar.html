@@ -1,9 +1,20 @@
 {% load static %}
 <!-- Topbar Start -->
-            <div class="navbar-custom">
-                
-
+            <div class="navbar-custom">              
                 <ul class="list-unstyled menu-left mb-0">
+
+
+                    <ul class="list-unstyled topnav-menu float-right mb-0">
+                        <li class="dropdown d-none d-lg-block">
+                            <div>
+                                <h2 style="padding: 10px 20px">Welcome {{request.user}}</h2>
+                                
+                            </div>
+                        </li>
+                    </ul> 
+
+
+
                     <li class="float-left">
                         <a href="" class="logo">
                             <span class="logo-lg">
@@ -24,12 +35,12 @@
                         </a>
                     </li>
                     <li class="app-search d-none d-md-block">
-                        <form>
-                            <input type="text" placeholder="Search..." class="form-control">
+                        <form action="" method='get'>
+                            <input type="text" placeholder="Search..." class="form-control" value='{{search_input}}'>
                             <button type="submit" class="sr-only"></button>
                         </form>
                     </li>
-                </ul>
+                </ul>            
             </div>
             <!-- end Topbar -->
 
@@ -52,6 +63,7 @@
                                     <span class="menu-arrow"></span>
                                 </a>
                                 <ul class="nav-second-level" aria-expanded="false">
+                                    {% comment %} <li><a href="{% url 'add-mail' %}" data-toggle="modal" data-target="#add-mail" >Add New Email</a></li> {% endcomment %}
                                     <li><a href="{% url 'add-mail' %}">Add New Email</a></li>
                                     <li><a href="{% url 'all-mail' %}">Email List</a></li> 
                                 </ul>
@@ -102,3 +114,22 @@
 
             </div>
             <!-- Left Sidebar End -->
+
+
+    {% comment %} <div class="modal fade" id="add-mail" tabindex="-1" role="dialog" aria-labelledby="myCenterModalLabel" aria-hidden="true" style="display: none;">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title" id="myCenterModalLabel">Center modal</h4>
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                </div>
+                    <div class="modal-body">
+                        <form action="" method='post'>
+                            {% csrf_token %}
+                            {{form}}
+                            <button class='btn btn-success' type='submit'>Add</button>
+                        </form>                        
+                    </div>
+            </div><!-- /.modal-content -->
+        </div><!-- /.modal-dialog -->
+    </div><!-- /.modal --> {% endcomment %}

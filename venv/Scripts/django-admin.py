@@ -1,4 +1,4 @@
-#!c:\users\sakib\desktop\django repository\password manager revised\venv\scripts\python.exe
+#!c:\users\manta\desktop\django repository\password-manager-revised\venv\scripts\python.exe
 # When the django-admin.py deprecation ends, remove this script.
 import warnings
 

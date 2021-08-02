@@ -13,7 +13,7 @@
             {% for number in numbers %}
             <tr>
                 <td>{{number.phone}}</td>
-                <td>Edit Delete</td>
+                <td><a href="{% url 'edit-phone' number.id %}">Edit</a> <a href="{% url 'delete-phone' number.id %}">Delete</a></td>
             </tr>
             {% endfor %}
         </table>

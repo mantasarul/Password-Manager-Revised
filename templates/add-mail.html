@@ -4,9 +4,25 @@
 {% block title %}Add New Mail{% endblock title %}
 
 {% block content %}
-    <form action="" method='post'>
-        {% csrf_token %}
-        {{form}}
-        <button class='btn btn-success' type='submit'>Add</button>
-    </form>
+    <div class="row">
+        <div class="col-md-6">
+            <div class="card-box">
+                <h4 class="header-title mb-3">Add New Email Address</h4>
+                <form method='post'>
+                    {% csrf_token %}
+                    <div class="form-group">
+                        {% comment %} <label for="id_mail">Email</label>
+                        <input type="email" name="mail" class="form-control" required id="id_mail" aria-describedby="emailHelp" placeholder="Enter email"> {% endcomment %}
+                        {{form}}
+                    </div>
+                    <button type="submit" class="btn btn-primary">Submit</button>
+                </form>
+            </div> <!-- end card-box -->
+        </div>    
+
+        {% comment %} <form action="" method='post'>
+            {% csrf_token %}
+            {{form}}
+            <input type="submit" value=Submit>
+        </form> {% endcomment %}
 {% endblock content %}

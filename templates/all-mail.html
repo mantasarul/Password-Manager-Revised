@@ -13,7 +13,7 @@
             {% for mail in mails %}
             <tr>
                 <td>{{mail.mail}}</td>
-                <td>Edit Delete</td>
+                <td><a href="{% url 'edit-mail' mail.id %}">Edit</a> <a href="{% url 'delete-mail' mail.id %}">Delete</a></td>
             </tr>
             {% endfor %}
         </table>

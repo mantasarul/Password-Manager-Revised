@@ -4,9 +4,21 @@
 {% block title %}Add New Phone{% endblock title %}
 
 {% block content %}
-    <form action="" method='post'>
-        {% csrf_token %}
-        {{form}}
-        <button class='btn btn-success' type='submit'>Add</button>
-    </form>
+    <div class="row">
+        <div class="col-md-6">
+            <div class="card-box">
+                <h4 class="header-title mb-3">Add New Phone Number</h4>
+                <form method='post'>
+                    {% csrf_token %}
+                    <div class="form-group">
+                        {% comment %} <label for="id_phone">Phone</label>
+                        <input type="text" name="phone" maxlength="100" class="form-control" required id="id_phone" aria-describedby="emailHelp" placeholder="Enter Phone Number"> {% endcomment %}
+                        {{form}}
+                    </div>
+                    <button type="submit" class="btn btn-primary">Submit</button>
+                </form>
+            </div> <!-- end card-box -->
+        </div>   
+    {% comment %} </div> {% endcomment %}
+
 {% endblock content %}

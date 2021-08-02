@@ -14,19 +14,55 @@
                 <th>Email</th>
                 <th>Phone</th>
                 <th>Recovery Code</th>
+                <th>Actions</th>
             </tr>
             {% for pass in passwords %}
             <tr>
                 <td>{{pass.category}}</td>
                 <td>{{pass.url}}</td>
                 <td>{{pass.username}}</td>
-                <td>{{pass.password}}</td>
+
+                 <td>
+                    <a href="{% url 'home' %}" class="waves-effect waves-light" data-toggle="modal" data-target=".{{pass.password}}">View</a>
+                    <div class="modal fade {{pass.password}}" tabindex="-1" role="dialog" aria-labelledby="myCenterModalLabel" aria-hidden="true" style="display: none;">
+                        <div class="modal-dialog modal-dialog-centered">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h4 class="modal-title" id="myCenterModalLabel">Password</h4>
+                                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                                </div>
+                            <div class="modal-body">
+                                {{pass.password}}
+                            </div>
+                        </div><!-- /.modal-content -->
+                    </div><!-- /.modal-dialog -->
+                </div><!-- /.modal -->
+                </td>
+
                 <td>{{pass.mail_id}}</td>
                 <td>{{pass.phone_id}}</td>
-                <td>{{pass.recovery_code}}</td>
+                {% comment %} <td>{{pass.recovery_code}}</td> {% endcomment %}
+
+                <td>
+                    <a href="{% url 'home' %}" class="waves-effect waves-light" data-toggle="modal" data-target=".{{pass.recovery_code}}">View</a>
+                    <div class="modal fade {{pass.recovery_code}}" tabindex="-1" role="dialog" aria-labelledby="myCenterModalLabel" aria-hidden="true" style="display: none;">
+                        <div class="modal-dialog modal-dialog-centered">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h4 class="modal-title" id="myCenterModalLabel">Recovery Code</h4>
+                                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                                </div>
+                            <div class="modal-body">
+                                {{pass.recovery_code}}
+                            </div>
+                        </div><!-- /.modal-content -->
+                    </div><!-- /.modal-dialog -->
+                </div><!-- /.modal -->
+                </td>
+
+                <td><a href="{% url 'edit-password' pass.id %}">Edit</a> <a href="{% url 'delete-password' pass.id %}">Delete</a></td>
             </tr>
             {% endfor %}
-        </table>                       
-            
+        </table>             
  
 {% endblock content %}
